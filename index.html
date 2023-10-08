@@ -13,7 +13,7 @@
     const App=()=>{
       let [counter,setCounter]=React.useState(0);
       const onClick = ()=>{
-        setCounter(++counter);
+        setCounter((current)=>current+1); //괄호안의 값으로 리로드 시켜주는 함수
       }
       return (
       <div>
