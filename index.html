@@ -8,8 +8,7 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-
-    const App = () => {
+  const MinutesToHours = () => {
       const [amount, setAmount] = React.useState(0);
       const [inverted,setInverted]=React.useState(false)
       const onChange = (event) => {
@@ -22,8 +21,6 @@
       }
       return (
         <div>
-          <h1 className="hi">Converter</h1>
-
           <div>
             <label htmlFor="minutes">Minutes</label>
             <input value={inverted? amount*60:amount} id="minutes" placeholder="Minutes" type="number" onChange={onChange} disabled={inverted}/>
@@ -35,6 +32,17 @@
           <button onClick={reset}>Reset</button>
           <button onClick={invert}>{inverted ? "Turn back":"Invert"}</button>
         </div>
+      );
+    };
+  const KmToMiles=() =>{
+
+  }
+  const App = () => {
+      return (
+        <div>
+          <h1 className="hi">Converter</h1>
+          <MinutesToHours/>
+          </div>
       );
     };
     const root = document.getElementById("root");
