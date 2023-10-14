@@ -40,17 +40,20 @@
       )
   }
   const App = () => {
-    const [index,setIndex]=React.useState("0")
+    const [index,setIndex]=React.useState("-1")
     const onSelect=(event)=>{
       setIndex(event.target.value);
     }
+    console.log("render w/",index)
       return (
         <div>
           <h1 className="hi">Converter</h1>
           <select value={index} onChange={onSelect}>
+            <option value="-1">Select option</option>
             <option value="0">Minutes & Hours</option>
             <option value="1">KM & Miles</option>
             </select>
+            <hr/>
             {index==="0" ? <MinutesToHours/>:null}
             {index ==="1" ? <KmToMiles/>:null}
           </div>
