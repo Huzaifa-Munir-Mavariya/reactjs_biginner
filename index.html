@@ -7,8 +7,9 @@
   <script src="https://unpkg.com/react@17.0.2/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/prop-types@15.8.1/prop-types.js"></script>
   <script type="text/babel">
-    const Btn=({text,changeValue})=>{
+    const Btn=({text,changeValue,fontSize = 14})=>{
       console.log(text, "was rendered")
       return (<button style={{
         backgroundColor: "tomato",
@@ -16,11 +17,15 @@
         padding: "10px 20px",
         border:0,
         borderRadius:10,
-        fontSize: 16,
+        fontSize,
       }} onClick={changeValue}>{text}</button>
       );
     }
     const MemorizeBtn=React.memo(Btn);
+    Btn.propTypes={
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
+    }
     const App = () => { //부모컴포넌트
       const [value,setValue]=React.useState("Save Changes");
       const changeValue=()=>{
@@ -28,7 +33,7 @@
       }
       return(
         <div>
-          <MemorizeBtn text={value} changeValue={changeValue}/>
+          <MemorizeBtn text={value} changeValue={changeValue} fontSize={18}/>
           <MemorizeBtn text="continue"/>
         </div>)
     };
