@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <span>Total clicks: 0</span>
-    <button id="btn">Click me</button>
+    <div style="display: flex; justify-content: center;" class="main-container">
+        <div style="align-items: center; border-radius: 5px; padding: 10px 20px; min-width: 20rem; border: 1px solid black; margin-top: 3rem; display: flex; justify-content: center;" class="container">
+            <span style="font-family: sans-serif; font-size: 1.3rem; margin: 3px;">Total Clicks: 0</span>
+            <button style="font-size: 1rem; font-weight: 600; border-radius: 5px; padding: 6px 15px; font-family: sans-serif; color: white; background-color: rgb(8, 8, 207); outline: none; border: none;  margin: 3px; margin-left: 15px;" id="Addbtn">Add One</button>
+            <button style="font-size: 1rem; font-weight: 600; border-radius: 5px; padding: 6px 15px; font-family: sans-serif; color: white; background-color: rgb(8, 8, 207); outline: none; border: none;  margin: 3px; margin-left: 15px;" id="Substractbtn">Substract One</button>
+            <button style="font-size: 1rem; font-weight: 600; border-radius: 5px; padding: 6px 15px; font-family: sans-serif; color: white; background-color: rgb(8, 8, 207); outline: none; border: none;  margin: 3px; margin-left: 15px;" id="Resetbtn">Reset</button>
+        </div>
+    </div>
 </body>
-<script> 
-    let counter  =0;
-    const button=document.getElementById("btn");
-    const span=document.querySelector("span");
-    function clickMe(){
-        counter+=1;
-        span.innerHTML=`Total clicks: ${counter}`;
+
+<script>
+    let counter = 0;
+
+    //This is the buttons metioned
+    const Addbtn = document.getElementById("Addbtn");
+    const Substractbtn = document.getElementById("Substractbtn");
+    const Resetbtn = document.getElementById("Resetbtn")
+
+
+    //This is the text where it is written Total clicks: 0
+    const span = document.querySelector("span");
+
+
+    //This is a Code in a Form of a function that what will happen When the button will be clicked
+    const AddOne = () => {
+        counter += 1;
+        span.innerHTML = `Total clicks: ${counter}`;
     }
-    button.addEventListener("click",clickMe);
+
+    const SubstractOne = () => {
+        counter -= 1;
+        span.innerHTML = `Total clicks: ${counter}`;
+    }
+
+    const ResetOne = () => {
+        counter = 0;
+        span.innerHTML = `Total clicks: ${counter}`;
+    }
+
+    //Here is the Code which tells that What will happen on a click of a button
+    Addbtn.addEventListener("click", AddOne);
+    Substractbtn.addEventListener("click", SubstractOne);
+    Resetbtn.addEventListener("click", ResetOne);
 </script>
 
 </html>
